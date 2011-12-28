@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2011 Google Inc. All Rights Reserved.
+  Author: Hiroshi Ichikawa
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+  
+  <LinearLayout
+      android:id="@+id/resultPageTopBar"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:layout_width="fill_parent"
+      android:paddingLeft="7px"
+      android:paddingTop="12px"
+      android:paddingRight="4px"
+      android:paddingBottom="7px"
+      android:background="@drawable/result_top_bar_with_candidates"
+      >
+      <!-- android:background="@drawable/background_repeated" -->
+    <LinearLayout
+        android:id="@+id/LinearLayout01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        >
+      <Button
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/homeButton"
+          android:text=""
+          android:textSize="12pt"
+          android:background="@drawable/button_result_home"
+          >
+      </Button>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="37px"
+          android:textSize="29px"
+          android:text=""
+          android:id="@+id/statusLabel"
+          android:textColor="#f5dbea"
+          >
+      </TextView>
+      <!-- 
+      <Button
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/upButton"
+          android:text="上"
+          android:textSize="12pt"
+          android:layout_marginRight="20dip">
+      </Button>
+      <Button
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/downButton"
+          android:text="下"
+          android:textSize="12pt"
+          android:layout_marginRight="20dip">
+      </Button>
+       -->
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/prevButton"
+        android:text=""
+        android:textSize="12pt"
+        android:layout_marginRight="8px"
+        android:background="@drawable/button_result_prev_disabled"
+        >
+    </Button>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nextButton"
+        android:text=""
+        android:textSize="12pt"
+        android:background="@drawable/button_result_next"
+        >
+    </Button>
+  </LinearLayout>
+  
+  <LinearLayout
+      android:id="@+id/candidatesBar"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:layout_width="fill_parent"
+      android:gravity="center_vertical"
+      android:background="@drawable/candidates_bar_repeated"
+      android:visibility="visible"
+      >
+    <TextView
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:textSize="20px"
+        android:text="または、"
+        android:textColor="#444444"
+        android:paddingLeft="32px"
+        android:paddingRight="32px"
+        />
+    <LinearLayout
+        android:id="@+id/candidatesContainer"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:gravity="center_vertical"
+        />
+        <!-- 
+    <ImageView
+        android:src="@drawable/candidates_separater"
+        android:layout_width="wrap_content" 
+        android:layout_height="fill_parent"
+        />
+    <TextView
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:textSize="29px"
+        android:text="ぼたん"
+        android:textColor="#000000"
+        android:paddingLeft="28px"
+        android:paddingRight="28px"
+        />
+        -->
+  </LinearLayout>
+  
+  <LinearLayout
+      android:id="@+id/subPageTopBar"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:layout_width="fill_parent"
+      android:paddingLeft="7px"
+      android:paddingTop="12px"
+      android:paddingRight="4px"
+      android:paddingBottom="7px"
+      android:background="@drawable/background_sub_repeated"
+      android:visibility="gone"
+      >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        >
+      <Button
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/subPageHomeButton"
+          android:text=""
+          android:textSize="12pt"
+          android:background="@drawable/button_sub_home"
+          >
+      </Button>
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/backButton"
+        android:text=""
+        android:textSize="12pt"
+        android:background="@drawable/button_sub_back"
+        >
+    </Button>
+  </LinearLayout>
+  
+  <LinearLayout  
+      android:layout_width="fill_parent" 
+      android:layout_height="fill_parent" 
+      android:id="@+id/webViewContainer"
+      >
+    <WebView  
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent" 
+        android:id="@+id/webView"
+        />
+  </LinearLayout>
+  
+  <TextView
+      android:layout_width="fill_parent" 
+      android:layout_height="fill_parent" 
+      android:id="@+id/messageLabel"
+      android:visibility="gone"
+      android:textSize="12pt"
+      android:text="読み込み中..."
+      />
+</LinearLayout>
