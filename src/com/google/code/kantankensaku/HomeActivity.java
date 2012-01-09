@@ -24,9 +24,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.inputmethodservice.KeyboardView.OnKeyboardActionListener;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
@@ -60,9 +62,17 @@ public class HomeActivity extends Activity {
   
   // WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED in API Level 11
   public static final int FLAG_HARDWARE_ACCELERATED = 0x01000000;
+  // ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE in API Level 9
+  public static final int SCREEN_ORIENTATION_SENSOR_LANDSCAPE = 6;
   
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    if (Build.VERSION.SDK_INT >= 9) {
+        setRequestedOrientation(SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+    } else {
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+    }
+    
     setContentView(R.layout.home_big);
     queryField = (TextView)findViewById(R.id.queryField);
     keyboardView = (KeyboardView)findViewById(R.id.keyboardView);

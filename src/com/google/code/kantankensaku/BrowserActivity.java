@@ -39,6 +39,7 @@ import org.json.JSONTokener;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
@@ -128,6 +129,12 @@ public class BrowserActivity extends Activity {
     // Needed to run Flash Player in Android 3.0 or later.
     getWindow().addFlags(HomeActivity.FLAG_HARDWARE_ACCELERATED);
     getWindow().requestFeature(Window.FEATURE_PROGRESS);
+    if (Build.VERSION.SDK_INT >= 9) {
+        setRequestedOrientation(HomeActivity.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+    } else {
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+    }
+    
     setContentView(bigScreen ? R.layout.browser_big : R.layout.browser);
     resultPageTopBar = findViewById(R.id.resultPageTopBar);
     subPageTopBar = findViewById(R.id.subPageTopBar);
