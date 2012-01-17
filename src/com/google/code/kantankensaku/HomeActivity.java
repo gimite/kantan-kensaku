@@ -67,6 +67,7 @@ public class HomeActivity extends Activity {
   
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    CustomExceptionHandler.setHandler();
     if (Build.VERSION.SDK_INT >= 9) {
         setRequestedOrientation(SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
     } else {

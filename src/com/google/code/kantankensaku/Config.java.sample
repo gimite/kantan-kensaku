@@ -27,4 +27,6 @@ public class Config {
   // go to its "Control panel" and paste its "Search engine ID" here:
   public static final String CUSTOM_SEARCH_ID = "XXX";
 
+  public static final boolean SAVE_CRASH_REPORT = false;
+
 }
