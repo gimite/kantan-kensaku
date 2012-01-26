@@ -581,6 +581,7 @@ public class BrowserActivity extends Activity {
         HashMap<String, String> params = new HashMap<String, String>();
         params.put("langpair", "ja-Hira|ja");
         params.put("text", origQuery);
+        params.put("num", "20");
         String url = createUrl("http://www.google.com/transliterate", params);
         log("conv url: %s", url);
         String json = fetch(url);
