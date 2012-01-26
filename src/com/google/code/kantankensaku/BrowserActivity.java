@@ -527,9 +527,8 @@ public class BrowserActivity extends Activity {
         params.put("cx", Config.CUSTOM_SEARCH_ID);
         params.put("q", query);
         params.put("alt", "json");
-        // Ideally we want to *prefer* Japanese instead of *restricting to* Japanese,
-        // but I don't know how to do it.
-        params.put("lr", "lang_ja");
+        // Prefers pages in Japan e.g. yahoo.co.jp to yahoo.com.
+        params.put("gl", "jp");
         params.put("start", Integer.toString(start + 1));
         params.put("num", "10");
         params.put("safe", "high");
