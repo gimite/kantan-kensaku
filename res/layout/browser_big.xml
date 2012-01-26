@@ -211,6 +211,7 @@
       android:id="@+id/messageLabel"
       android:visibility="gone"
       android:textSize="12pt"
+      android:gravity="center_vertical|center_horizontal"
       android:text="読み込み中..."
       />
 </LinearLayout>

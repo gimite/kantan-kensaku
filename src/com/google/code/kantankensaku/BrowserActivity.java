@@ -42,6 +42,8 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -121,11 +123,14 @@ public class BrowserActivity extends Activity {
     private int selectedCandidateResource;
     private boolean touched = false;
     private int firstPageHistoryIndex;
+    private ConnectivityManager connectivityManager;
     
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        connectivityManager = (ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
+
         // Needed to run Flash Player in Android 3.0 or later.
         getWindow().addFlags(HomeActivity.FLAG_HARDWARE_ACCELERATED);
         getWindow().requestFeature(Window.FEATURE_PROGRESS);
@@ -514,6 +519,7 @@ public class BrowserActivity extends Activity {
                 searchCompleted = response.completed;
                 showResult(resultIndexToShow);
             } else {
+                searchCompleted = true;
                 reportFailure();
             }
         }
@@ -620,18 +626,27 @@ public class BrowserActivity extends Activity {
     
     private void reportFailure() {
         statusLabel.setText("");
-        showMessage("検索に失敗しました。インターネットに接続されていることを確認して、最初からやり直してください。");
+        candidatesClosed = true;
+        updateBarsVisibility();
+        NetworkInfo info = connectivityManager.getActiveNetworkInfo();
+        String message;
+        if (info != null && info.getState() == NetworkInfo.State.CONNECTED) {
+            message = "検索に失敗しました。インターネットに接続されていることを確認して、最初からやり直してください。";
+        } else {
+            message = "インターネットに接続されていません。インターネットに接続して、最初からやり直してください。";
+        }
+        showMessage(message);
     }
     
     private void showMessage(String message) {
-        webView.setVisibility(View.GONE);
+        webViewContainer.setVisibility(View.GONE);
         messageLabel.setText(message);
         messageLabel.setVisibility(View.VISIBLE);
     }
     
     private void hideMessage() {
         messageLabel.setVisibility(View.GONE);
-        webView.setVisibility(View.VISIBLE);
+        webViewContainer.setVisibility(View.VISIBLE);
     }
     
     private void loadMessagePage(String message) {

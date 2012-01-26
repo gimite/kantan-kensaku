@@ -28,6 +28,8 @@ import android.content.pm.ActivityInfo;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.inputmethodservice.KeyboardView.OnKeyboardActionListener;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -45,19 +47,19 @@ import android.widget.TextView;
 
 public class HomeActivity extends Activity {
 
-        private enum KanaType {
-                SEION, DAKUON, HANDAKUON, YOUON,
-        }
+    private enum KanaType {
+        SEION, DAKUON, HANDAKUON, YOUON,
+    }
     
     private static final int MIN_DISPLAY_WIDTH = 1024;
     private static final int MIN_DISPLAY_HEIGHT = 600;
     
-	private TextView queryField;
-	private KeyboardView keyboardView;
-	private Button searchButton;
-	
-	private Keyboard gojuonKeyboard;
-	private Keyboard simpleAsciiKeyboard;
+    private TextView queryField;
+    private KeyboardView keyboardView;
+    private Button searchButton;
+    
+    private Keyboard gojuonKeyboard;
+    private Keyboard simpleAsciiKeyboard;
     private HashMap<KanaType, HashMap<Character, Character>> charMap;
     
     // WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED in API Level 11
@@ -69,9 +71,9 @@ public class HomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         CustomExceptionHandler.setHandler();
         if (Build.VERSION.SDK_INT >= 9) {
-                setRequestedOrientation(SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+            setRequestedOrientation(SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
         } else {
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         }
         
         setContentView(R.layout.home_big);
