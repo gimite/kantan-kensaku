@@ -73,15 +73,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class BrowserActivity extends Activity {
+    
+    private class FailureException extends Exception {
+    }
         
-        private class FailureException extends Exception {
-        }
-        
-        private enum Mode {
-                RESULT_PAGE_WITH_CANDIDATES,
-                RESULT_PAGE_WITHOUT_CANDIDATES,
-                SUB_PAGE,
-        }
+    private enum Mode {
+        RESULT_PAGE_WITH_CANDIDATES,
+        RESULT_PAGE_WITHOUT_CANDIDATES,
+        SUB_PAGE,
+    }
 
     private static final int NUM_RESULTS_PER_PAGE = 8;
     private static final boolean TEST_REDIRECT = false;
