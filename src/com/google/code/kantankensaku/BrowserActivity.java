@@ -529,6 +529,7 @@ public class BrowserActivity extends Activity {
         params.put("alt", "json");
         // Prefers pages in Japan e.g. yahoo.co.jp to yahoo.com.
         params.put("gl", "jp");
+        params.put("googlehost", "jp");
         params.put("start", Integer.toString(start + 1));
         params.put("num", "10");
         params.put("safe", "high");
