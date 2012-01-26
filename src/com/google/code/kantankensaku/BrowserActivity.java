@@ -405,6 +405,7 @@ public class BrowserActivity extends Activity {
     }
     
     public void onClick(View v) {
+      if (conversionIndex == index) return;
       conversionIndex = index;
       clearResults();
       showResult(0);
