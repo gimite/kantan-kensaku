@@ -130,9 +130,9 @@ public class BrowserActivity extends Activity {
         getWindow().addFlags(HomeActivity.FLAG_HARDWARE_ACCELERATED);
         getWindow().requestFeature(Window.FEATURE_PROGRESS);
         if (Build.VERSION.SDK_INT >= 9) {
-                setRequestedOrientation(HomeActivity.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+            setRequestedOrientation(HomeActivity.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
         } else {
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         }
         
         setContentView(bigScreen ? R.layout.browser_big : R.layout.browser);
@@ -210,11 +210,17 @@ public class BrowserActivity extends Activity {
     protected void onResume() {
         super.onResume();
         startHistoryWatchTimer();
+	if (webView != null) {
+	    webViewOnResume();
+	}
     }
     
     protected void onPause() {
+	if (webView != null) {
+	    webViewOnPause();
+	}
         stopHistoryWatchTimer();
-        super.onStop();
+        super.onPause();
     }
     
     private void startHistoryWatchTimer() {
@@ -440,7 +446,7 @@ public class BrowserActivity extends Activity {
     }
     
     private void recreateWebView() {
-        if (webView != null) webViewContainer.removeView(webView);
+	removeWebView();
         webView = (WebView)getLayoutInflater().inflate(R.layout.web_view, null);
         webView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
         // Enables Flash Player only for Android >=3.0.
@@ -460,6 +466,16 @@ public class BrowserActivity extends Activity {
         webViewContainer.addView(webView);
         touched = false;
         firstPageHistoryIndex = 0;
+    }
+    
+    private void removeWebView() {
+        if (webView != null) {
+	    // Stops Flash Player. Otherwise sound keeps playing after WebView is destroyed.
+            webViewOnPause();
+            webViewContainer.removeView(webView);
+            webView.destroy();
+            webView = null;
+        }
     }
     
     private class ConvertAndSearchTask extends AsyncTask<Void, Void, SearchResponse> {
@@ -761,6 +777,47 @@ public class BrowserActivity extends Activity {
             log("plugin enabled");
         } catch (ClassNotFoundException e) {
         } catch (NoSuchFieldException e) {
+        } catch (NoSuchMethodException e) {
+        } catch (SecurityException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalArgumentException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        } catch (InvocationTargetException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+    private void webViewOnPause() {
+        try {
+            // Mainly to pause Flash Player.
+            // This works only on Android 3.0 or later. But it is fine because we disable Flash Player
+            // on Android before 3.0.
+            Class<?> webViewClass = Class.forName("android.webkit.WebView");
+            Method onPause = webViewClass.getMethod("onPause");
+            onPause.invoke(webView);
+            Log.i("kantan-kensaku", "onPause success");
+        } catch (ClassNotFoundException e) {
+        } catch (NoSuchMethodException e) {
+        } catch (SecurityException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalArgumentException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        } catch (InvocationTargetException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+    private void webViewOnResume() {
+        try {
+            Class<?> webViewClass = Class.forName("android.webkit.WebView");
+            Method onResume = webViewClass.getMethod("onResume");
+            onResume.invoke(webView);
+            Log.i("kantan-kensaku", "onResume success");
+        } catch (ClassNotFoundException e) {
         } catch (NoSuchMethodException e) {
         } catch (SecurityException e) {
             throw new RuntimeException(e);
