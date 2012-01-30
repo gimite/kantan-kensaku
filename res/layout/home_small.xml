@@ -22,18 +22,12 @@
     android:gravity="center_horizontal"
     android:background="@drawable/background_repeated"
     >
-  <!--
-    We intend to have 10px top padding, 68px content and 10px bottom padding.
-    But EditText has around 6px built-in bottom margin (in Galaxy Tab. Maybe different in
-    other environment), so the LinearLayout has 10px/4px padding and its children except for
-    EditText has 6px bottom margin.
-   -->
   <LinearLayout
       android:orientation="horizontal"
       android:layout_width="fill_parent"
       android:layout_height="wrap_content"
       android:paddingTop="10px"
-      android:paddingBottom="4px"
+      android:paddingBottom="10px"
       android:background="#ffffff"
       android:gravity="top"
       >
@@ -62,12 +56,11 @@
         android:layout_height="68px"
         android:layout_marginLeft="8px"
         android:layout_marginRight="66px"
-        android:layout_marginBottom="6px"
         android:id="@+id/searchButton"
         android:text=""
         android:background="@drawable/button_search"
-        android:textSize="20pt">
-    </Button>
+        android:textSize="20pt"
+        />
   </LinearLayout>
   <android.inputmethodservice.KeyboardView
       android:id="@+id/keyboardView"
@@ -78,6 +71,5 @@
       android:paddingBottom="11px"
       android:paddingRight="7px"
       android:background="@drawable/background_repeated"
-      >
-  </android.inputmethodservice.KeyboardView>
+      />
 </LinearLayout>

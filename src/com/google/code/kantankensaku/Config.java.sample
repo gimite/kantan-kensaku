@@ -19,14 +19,16 @@ package com.google.code.kantankensaku;
 
 public class Config {
 
-  // Go to "API Access" page in https://code.google.com/apis/console/
-  // and paste "API key" in "Simple API Access" section here:
-  public static final String GOOGLE_API_KEY = "XXX";
+    // Go to "API Access" page in https://code.google.com/apis/console/
+    // and paste "API key" in "Simple API Access" section here:
+    public static final String GOOGLE_API_KEY = "XXX";
 
-  // Go to http://www.google.com/cse/manage/all , create new search engine,
-  // go to its "Control panel" and paste its "Search engine ID" here:
-  public static final String CUSTOM_SEARCH_ID = "XXX";
+    // Go to http://www.google.com/cse/manage/all , create new search engine,
+    // go to its "Control panel" and paste its "Search engine ID" here:
+    public static final String CUSTOM_SEARCH_ID = "XXX";
 
-  public static final boolean SAVE_CRASH_REPORT = false;
+    public static final boolean SAVE_CRASH_REPORT = false;
+
+    public static final SizedResources.Size RESOURCE_SIZE = SizedResources.Size.AUTO;
 
 }

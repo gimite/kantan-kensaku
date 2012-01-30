@@ -52,8 +52,6 @@ public class HomeActivity extends Activity {
         SEION, DAKUON, HANDAKUON, YOUON,
     }
     
-    private static final int MIN_DISPLAY_WIDTH = 1024;
-    private static final int MIN_DISPLAY_HEIGHT = 600;
     private static final int DIALOG_ABOUT = 0;
     
     private TextView queryField;
@@ -63,6 +61,7 @@ public class HomeActivity extends Activity {
     private Keyboard gojuonKeyboard;
     private Keyboard simpleAsciiKeyboard;
     private HashMap<KanaType, HashMap<Character, Character>> charMap;
+    private SizedResources sizedResources;
     
     // WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED in API Level 11
     public static final int FLAG_HARDWARE_ACCELERATED = 0x01000000;
@@ -77,14 +76,15 @@ public class HomeActivity extends Activity {
         } else {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         }
+        sizedResources = new SizedResources(this);
         
-        setContentView(R.layout.home_big);
+        setContentView(sizedResources.homeLayout);
         queryField = (TextView)findViewById(R.id.queryField);
         keyboardView = (KeyboardView)findViewById(R.id.keyboardView);
         searchButton = (Button)findViewById(R.id.searchButton);
         
-        gojuonKeyboard = new Keyboard(this, R.xml.gojuon_keyboard);
-        simpleAsciiKeyboard = new Keyboard(this, R.xml.simple_ascii_keyboard);
+        gojuonKeyboard = new Keyboard(this, sizedResources.gojuonKeyboard);
+        simpleAsciiKeyboard = new Keyboard(this, sizedResources.asciiKeyboard);
         keyboardView.setKeyboard(gojuonKeyboard);
         keyboardView.setOnKeyboardActionListener(onKeyboardAction);
         searchButton.setOnClickListener(onSearchButtonClick);
@@ -130,14 +130,15 @@ public class HomeActivity extends Activity {
     }
     
     private void checkDisplaySize() {
-        Display display = getWindowManager().getDefaultDisplay();
-        log("display: %d,%d", display.getWidth(), display.getHeight());
-        if (display.getWidth() < MIN_DISPLAY_WIDTH || display.getHeight() < MIN_DISPLAY_HEIGHT) {
+        if (!sizedResources.supported) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(getResources().getString(R.string.app_name));
-            builder.setMessage(
-                    "このデバイスでは" + getResources().getString(R.string.app_name) +
-                    "を利用できません。\n1024×600以上の解像度が必要です。");
+            builder.setMessage(String.format(
+                    "このデバイスでは%sを利用できません。\n" +
+                    "%d×%d以上の解像度が必要です。",
+                    getResources().getString(R.string.app_name),
+                    SizedResources.SMALL_MIN_DISPLAY_WIDTH,
+                    SizedResources.SMALL_MIN_DISPLAY_HEIGHT));
             builder.setPositiveButton("OK",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {

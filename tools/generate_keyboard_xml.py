@@ -18,14 +18,19 @@
 import sys
 
 type = sys.argv[1]
-# small:
-#key_height = 62
-#vertical_gap = 8
-#kana_x_metrics = [(7, 56), (10, 56), (10, 56), (36, 67), (13, 67), (14, 67), (13, 67), (13, 67), (13, 67), (14, 67), (13, 67), (13, 67), (12, 67),]
-kana_x_metrics = [(8, 71), (12, 71), (12, 70), (45, 84), (16, 84), (18, 83), (17, 83), (17, 83), (17, 83), (18, 83), (17, 83), (17, 83), (16, 83), ]
-ascii_x_metrics = [(119, 84), (16, 84), (16, 84), (18, 83), (17, 83), (17, 83), (15, 84), ]
-key_height = 80
-vertical_gap = 11
+size = sys.argv[2]
+
+if size == "small":
+  kana_x_metrics = [(7, 56), (10, 56), (10, 56), (36, 67), (13, 67), (14, 67), (13, 67), (13, 67), (13, 67), (14, 67), (13, 67), (13, 67), (12, 67),]
+  ascii_x_metrics = [(35, 67), (13, 67), (13, 67), (14, 67), (13, 67), (13, 67), (12, 67), ]
+  key_height = 62
+  vertical_gap = 8
+else:
+  kana_x_metrics = [(8, 71), (12, 71), (12, 70), (45, 84), (16, 84), (18, 83), (17, 83), (17, 83), (17, 83), (18, 83), (17, 83), (17, 83), (16, 83), ]
+  ascii_x_metrics = [(119, 84), (16, 84), (16, 84), (18, 83), (17, 83), (17, 83), (15, 84), ]
+  key_height = 80
+  vertical_gap = 11
+
 if type == "gojuon":
   key_labels = [
       u"123わらやまはなたさかあ",
@@ -51,6 +56,22 @@ else:
                [((300 - num_width) + ascii_x_metrics[0][0], ascii_x_metrics[0][1])] +
                ascii_x_metrics[1:])
 
+print '<!--'
+print '  Copyright 2011 Google Inc. All Rights Reserved.'
+print '  Author: Hiroshi Ichikawa'
+print ''
+print '  Licensed under the Apache License, Version 2.0 (the "License");'
+print '  you may not use this file except in compliance with the License.'
+print '  You may obtain a copy of the License at'
+print ''
+print '      http://www.apache.org/licenses/LICENSE-2.0'
+print ''
+print '  Unless required by applicable law or agreed to in writing, software'
+print '  distributed under the License is distributed on an "AS IS" BASIS,'
+print '  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.'
+print '  See the License for the specific language governing permissions and'
+print '  limitations under the License.'
+print '-->'
 print '<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"'
 print '    android:horizontalGap="7px"'
 print '    android:verticalGap="%dpx"' % vertical_gap
@@ -75,19 +96,21 @@ for y in xrange(len(key_labels)):
       elif x in [1, 2]:
         continue
     if type == 'gojuon' or x < 3:
-      icon = '@drawable/button_big_kana_%d_%d' % (x, y)
+      icon = '@drawable/button_%s_kana_%d_%d' % (size, x, y)
     elif y < 4:
-      icon = '@drawable/button_big_ascii_%d_%d' % (x - 3, y)
+      icon = '@drawable/button_%s_ascii_%d_%d' % (size, x - 3, y)
     else:
-      icon = '@drawable/button_big_ascii_6_3'  # empty
+      icon = '@drawable/button_%s_ascii_6_3' % size  # empty
     print ('        <Key android:codes="%d" android:keyIcon="%s" '
            'android:keyWidth="%dpx" android:horizontalGap="%dpx"/>'
            % (code, icon, width, gap))
   print '    </Row>'
 
-#small:
-#bottom_x_metrics =[(7, 188), (38, 143), (5, 143), (5, 143), (5, 143), (5, 194)]
-bottom_x_metrics = [(8, 236), (47, 179), (6, 179), (6, 179), (6, 179), (6, 243), ]
+if size == "small":
+  bottom_x_metrics =[(7, 188), (38, 143), (5, 143), (5, 143), (5, 143), (5, 194), ]
+else:
+  bottom_x_metrics = [(8, 236), (47, 179), (6, 179), (6, 179), (6, 179), (6, 243), ]
+
 if type == "gojuon":
   codes = [
       -230,  # ASCII mode
@@ -95,7 +118,6 @@ if type == "gojuon":
       -400,  # dakuon
       -401,  # handakuon
       -402,  # small char
-      #(-403, 168, 10),  # delete all
       -100,  # backspace
   ]
 else:
@@ -111,8 +133,8 @@ else:
 type2 = 'kana' if type == 'gojuon' else 'ascii'
 print '    <Row>'
 for i in xrange(len(codes)):
-  print ('        <Key android:codes="%d" android:keyIcon="@drawable/button_big_%s_bottom_%d" '
+  print ('        <Key android:codes="%d" android:keyIcon="@drawable/button_%s_%s_bottom_%d" '
          'android:keyWidth="%dpx" android:horizontalGap="%dpx"/>'
-         % (codes[i], type2, i, bottom_x_metrics[i][1], bottom_x_metrics[i][0]))
+         % (codes[i], size, type2, i, bottom_x_metrics[i][1], bottom_x_metrics[i][0]))
 print '    </Row>'
 print '</Keyboard>'

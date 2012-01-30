@@ -1,0 +1,89 @@
+<!--
+  Copyright 2011 Google Inc. All Rights Reserved.
+  Author: Hiroshi Ichikawa
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:horizontalGap="7px"
+    android:verticalGap="8px"
+    android:keyWidth="67px"
+    android:keyHeight="62px"
+    >
+    <Row>
+        <Key android:codes="49" android:keyIcon="@drawable/button_small_kana_0_0" android:keyWidth="56px" android:horizontalGap="7px"/>
+        <Key android:codes="50" android:keyIcon="@drawable/button_small_kana_1_0" android:keyWidth="56px" android:horizontalGap="10px"/>
+        <Key android:codes="51" android:keyIcon="@drawable/button_small_kana_2_0" android:keyWidth="56px" android:horizontalGap="10px"/>
+        <Key android:codes="65" android:keyIcon="@drawable/button_small_ascii_0_0" android:keyWidth="67px" android:horizontalGap="140px"/>
+        <Key android:codes="66" android:keyIcon="@drawable/button_small_ascii_1_0" android:keyWidth="67px" android:horizontalGap="13px"/>
+        <Key android:codes="67" android:keyIcon="@drawable/button_small_ascii_2_0" android:keyWidth="67px" android:horizontalGap="13px"/>
+        <Key android:codes="68" android:keyIcon="@drawable/button_small_ascii_3_0" android:keyWidth="67px" android:horizontalGap="14px"/>
+        <Key android:codes="69" android:keyIcon="@drawable/button_small_ascii_4_0" android:keyWidth="67px" android:horizontalGap="13px"/>
+        <Key android:codes="70" android:keyIcon="@drawable/button_small_ascii_5_0" android:keyWidth="67px" android:horizontalGap="13px"/>
+        <Key android:codes="71" android:keyIcon="@drawable/button_small_ascii_6_0" android:keyWidth="67px" android:horizontalGap="12px"/>
+    </Row>
+    <Row>
+        <Key android:codes="52" android:keyIcon="@drawable/button_small_kana_0_1" android:keyWidth="56px" android:horizontalGap="7px"/>
+        <Key android:codes="53" android:keyIcon="@drawable/button_small_kana_1_1" android:keyWidth="56px" android:horizontalGap="10px"/>
+        <Key android:codes="54" android:keyIcon="@drawable/button_small_kana_2_1" android:keyWidth="56px" android:horizontalGap="10px"/>
+        <Key android:codes="72" android:keyIcon="@drawable/button_small_ascii_0_1" android:keyWidth="67px" android:horizontalGap="140px"/>
+        <Key android:codes="73" android:keyIcon="@drawable/button_small_ascii_1_1" android:keyWidth="67px" android:horizontalGap="13px"/>
+        <Key android:codes="74" android:keyIcon="@drawable/button_small_ascii_2_1" android:keyWidth="67px" android:horizontalGap="13px"/>
+        <Key android:codes="75" android:keyIcon="@drawable/button_small_ascii_3_1" android:keyWidth="67px" android:horizontalGap="14px"/>
+        <Key android:codes="76" android:keyIcon="@drawable/button_small_ascii_4_1" android:keyWidth="67px" android:horizontalGap="13px"/>
+        <Key android:codes="77" android:keyIcon="@drawable/button_small_ascii_5_1" android:keyWidth="67px" android:horizontalGap="13px"/>
+        <Key android:codes="78" android:keyIcon="@drawable/button_small_ascii_6_1" android:keyWidth="67px" android:horizontalGap="12px"/>
+    </Row>
+    <Row>
+        <Key android:codes="55" android:keyIcon="@drawable/button_small_kana_0_2" android:keyWidth="56px" android:horizontalGap="7px"/>
+        <Key android:codes="56" android:keyIcon="@drawable/button_small_kana_1_2" android:keyWidth="56px" android:horizontalGap="10px"/>
+        <Key android:codes="57" android:keyIcon="@drawable/button_small_kana_2_2" android:keyWidth="56px" android:horizontalGap="10px"/>
+        <Key android:codes="79" android:keyIcon="@drawable/button_small_ascii_0_2" android:keyWidth="67px" android:horizontalGap="140px"/>
+        <Key android:codes="80" android:keyIcon="@drawable/button_small_ascii_1_2" android:keyWidth="67px" android:horizontalGap="13px"/>
+        <Key android:codes="81" android:keyIcon="@drawable/button_small_ascii_2_2" android:keyWidth="67px" android:horizontalGap="13px"/>
+        <Key android:codes="82" android:keyIcon="@drawable/button_small_ascii_3_2" android:keyWidth="67px" android:horizontalGap="14px"/>
+        <Key android:codes="83" android:keyIcon="@drawable/button_small_ascii_4_2" android:keyWidth="67px" android:horizontalGap="13px"/>
+        <Key android:codes="84" android:keyIcon="@drawable/button_small_ascii_5_2" android:keyWidth="67px" android:horizontalGap="13px"/>
+        <Key android:codes="85" android:keyIcon="@drawable/button_small_ascii_6_2" android:keyWidth="67px" android:horizontalGap="12px"/>
+    </Row>
+    <Row>
+        <Key android:codes="0" android:keyIcon="@drawable/button_small_kana_0_3" android:keyWidth="56px" android:horizontalGap="7px"/>
+        <Key android:codes="48" android:keyIcon="@drawable/button_small_kana_1_3" android:keyWidth="56px" android:horizontalGap="10px"/>
+        <Key android:codes="0" android:keyIcon="@drawable/button_small_kana_2_3" android:keyWidth="56px" android:horizontalGap="10px"/>
+        <Key android:codes="86" android:keyIcon="@drawable/button_small_ascii_0_3" android:keyWidth="67px" android:horizontalGap="140px"/>
+        <Key android:codes="87" android:keyIcon="@drawable/button_small_ascii_1_3" android:keyWidth="67px" android:horizontalGap="13px"/>
+        <Key android:codes="88" android:keyIcon="@drawable/button_small_ascii_2_3" android:keyWidth="67px" android:horizontalGap="13px"/>
+        <Key android:codes="89" android:keyIcon="@drawable/button_small_ascii_3_3" android:keyWidth="67px" android:horizontalGap="14px"/>
+        <Key android:codes="90" android:keyIcon="@drawable/button_small_ascii_4_3" android:keyWidth="67px" android:horizontalGap="13px"/>
+        <Key android:codes="0" android:keyIcon="@drawable/button_small_ascii_5_3" android:keyWidth="67px" android:horizontalGap="13px"/>
+        <Key android:codes="0" android:keyIcon="@drawable/button_small_ascii_6_3" android:keyWidth="67px" android:horizontalGap="12px"/>
+    </Row>
+    <Row>
+        <Key android:codes="32" android:keyIcon="@drawable/button_small_kana_0_4" android:keyWidth="188px" android:horizontalGap="7px"/>
+        <Key android:codes="0" android:keyIcon="@drawable/button_small_ascii_6_3" android:keyWidth="67px" android:horizontalGap="140px"/>
+        <Key android:codes="0" android:keyIcon="@drawable/button_small_ascii_6_3" android:keyWidth="67px" android:horizontalGap="13px"/>
+        <Key android:codes="0" android:keyIcon="@drawable/button_small_ascii_6_3" android:keyWidth="67px" android:horizontalGap="13px"/>
+        <Key android:codes="0" android:keyIcon="@drawable/button_small_ascii_6_3" android:keyWidth="67px" android:horizontalGap="14px"/>
+        <Key android:codes="0" android:keyIcon="@drawable/button_small_ascii_6_3" android:keyWidth="67px" android:horizontalGap="13px"/>
+        <Key android:codes="0" android:keyIcon="@drawable/button_small_ascii_6_3" android:keyWidth="67px" android:horizontalGap="13px"/>
+        <Key android:codes="0" android:keyIcon="@drawable/button_small_ascii_6_3" android:keyWidth="67px" android:horizontalGap="12px"/>
+    </Row>
+    <Row>
+        <Key android:codes="-230" android:keyIcon="@drawable/button_small_ascii_bottom_0" android:keyWidth="188px" android:horizontalGap="7px"/>
+        <Key android:codes="0" android:keyIcon="@drawable/button_small_ascii_bottom_1" android:keyWidth="143px" android:horizontalGap="38px"/>
+        <Key android:codes="0" android:keyIcon="@drawable/button_small_ascii_bottom_2" android:keyWidth="143px" android:horizontalGap="5px"/>
+        <Key android:codes="0" android:keyIcon="@drawable/button_small_ascii_bottom_3" android:keyWidth="143px" android:horizontalGap="5px"/>
+        <Key android:codes="0" android:keyIcon="@drawable/button_small_ascii_bottom_4" android:keyWidth="143px" android:horizontalGap="5px"/>
+        <Key android:codes="-100" android:keyIcon="@drawable/button_small_ascii_bottom_5" android:keyWidth="194px" android:horizontalGap="5px"/>
+    </Row>
+</Keyboard>
