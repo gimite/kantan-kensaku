@@ -104,9 +104,7 @@ public class HomeActivity extends Activity {
         super.onMenuItemSelected(featureId, item);
         switch (item.getItemId()) {
         case R.id.originalHomeItem:
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_HOME);
-            startActivity(Intent.createChooser(intent, null));
+            startOtherHome();
             break;
         case R.id.settingsItem:
             startActivity(new Intent("android.settings.SETTINGS"));
@@ -142,6 +140,9 @@ public class HomeActivity extends Activity {
             builder.setPositiveButton("OK",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            // Gives chance to go back to other home apps, in case this app is registered
+                            // as default home app.
+                            startOtherHome();
                             finish();
                         }
                     });
@@ -280,6 +281,12 @@ public class HomeActivity extends Activity {
             }
         }
     };
+    
+    private void startOtherHome() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(Intent.createChooser(intent, null));
+    }
     
     private void log(String format, Object... args) {
         Log.i("kantankensaku", String.format(format, (Object[])args));

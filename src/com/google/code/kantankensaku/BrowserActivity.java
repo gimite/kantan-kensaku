@@ -203,15 +203,15 @@ public class BrowserActivity extends Activity {
     protected void onResume() {
         super.onResume();
         startHistoryWatchTimer();
-	if (webView != null) {
-	    webViewOnResume();
-	}
+    	if (webView != null) {
+    	    webViewOnResume();
+    	}
     }
     
     protected void onPause() {
-	if (webView != null) {
-	    webViewOnPause();
-	}
+    	if (webView != null) {
+    	    webViewOnPause();
+    	}
         stopHistoryWatchTimer();
         super.onPause();
     }
@@ -528,7 +528,7 @@ public class BrowserActivity extends Activity {
         params.put("num", "10");
         params.put("safe", "high");
         String url = createUrl("https://www.googleapis.com/customsearch/v1", params);
-        Log.i("kantankensaku", String.format("url: %s", url));
+        log("url: %s", url);
         String json = fetch(url);
         log("json: %s", json);
         try {
@@ -799,7 +799,6 @@ public class BrowserActivity extends Activity {
             Class<?> webViewClass = Class.forName("android.webkit.WebView");
             Method onPause = webViewClass.getMethod("onPause");
             onPause.invoke(webView);
-            Log.i("kantan-kensaku", "onPause success");
         } catch (ClassNotFoundException e) {
         } catch (NoSuchMethodException e) {
         } catch (SecurityException e) {
@@ -818,7 +817,6 @@ public class BrowserActivity extends Activity {
             Class<?> webViewClass = Class.forName("android.webkit.WebView");
             Method onResume = webViewClass.getMethod("onResume");
             onResume.invoke(webView);
-            Log.i("kantan-kensaku", "onResume success");
         } catch (ClassNotFoundException e) {
         } catch (NoSuchMethodException e) {
         } catch (SecurityException e) {
