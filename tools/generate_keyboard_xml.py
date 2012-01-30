@@ -101,9 +101,14 @@ for y in xrange(len(key_labels)):
       icon = '@drawable/button_%s_ascii_%d_%d' % (size, x - 3, y)
     else:
       icon = '@drawable/button_%s_ascii_6_3' % size  # empty
+    if code == ord(u" "):
+      popup_id = "@drawable/popup_char_0000"
+    else:
+      popup_id = "@drawable/popup_char_%04x" % code
     print ('        <Key android:codes="%d" android:keyIcon="%s" '
-           'android:keyWidth="%dpx" android:horizontalGap="%dpx"/>'
-           % (code, icon, width, gap))
+           'android:keyWidth="%dpx" android:horizontalGap="%dpx" '
+           'android:iconPreview="%s"/>'
+           % (code, icon, width, gap, popup_id))
   print '    </Row>'
 
 if size == "small":

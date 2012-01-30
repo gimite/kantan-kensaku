@@ -19,7 +19,7 @@
     <item android:id="@+id/originalHomeItem"
           android:title="元のホーム" />
     <item android:id="@+id/settingsItem"
-          android:title="設定" />
+          android:title="システムの設定" />
     <item android:id="@+id/aboutItem"
           android:title="かんたん検索について" />
 </menu>

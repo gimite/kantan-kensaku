@@ -21,77 +21,77 @@
     android:keyHeight="62px"
     >
     <Row>
-        <Key android:codes="49" android:keyIcon="@drawable/button_small_kana_0_0" android:keyWidth="56px" android:horizontalGap="7px"/>
-        <Key android:codes="50" android:keyIcon="@drawable/button_small_kana_1_0" android:keyWidth="56px" android:horizontalGap="10px"/>
-        <Key android:codes="51" android:keyIcon="@drawable/button_small_kana_2_0" android:keyWidth="56px" android:horizontalGap="10px"/>
-        <Key android:codes="12431" android:keyIcon="@drawable/button_small_kana_3_0" android:keyWidth="67px" android:horizontalGap="36px"/>
-        <Key android:codes="12425" android:keyIcon="@drawable/button_small_kana_4_0" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12420" android:keyIcon="@drawable/button_small_kana_5_0" android:keyWidth="67px" android:horizontalGap="14px"/>
-        <Key android:codes="12414" android:keyIcon="@drawable/button_small_kana_6_0" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12399" android:keyIcon="@drawable/button_small_kana_7_0" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12394" android:keyIcon="@drawable/button_small_kana_8_0" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12383" android:keyIcon="@drawable/button_small_kana_9_0" android:keyWidth="67px" android:horizontalGap="14px"/>
-        <Key android:codes="12373" android:keyIcon="@drawable/button_small_kana_10_0" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12363" android:keyIcon="@drawable/button_small_kana_11_0" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12354" android:keyIcon="@drawable/button_small_kana_12_0" android:keyWidth="67px" android:horizontalGap="12px"/>
+        <Key android:codes="49" android:keyIcon="@drawable/button_small_kana_0_0" android:keyWidth="56px" android:horizontalGap="7px" android:iconPreview="@drawable/popup_char_0031"/>
+        <Key android:codes="50" android:keyIcon="@drawable/button_small_kana_1_0" android:keyWidth="56px" android:horizontalGap="10px" android:iconPreview="@drawable/popup_char_0032"/>
+        <Key android:codes="51" android:keyIcon="@drawable/button_small_kana_2_0" android:keyWidth="56px" android:horizontalGap="10px" android:iconPreview="@drawable/popup_char_0033"/>
+        <Key android:codes="12431" android:keyIcon="@drawable/button_small_kana_3_0" android:keyWidth="67px" android:horizontalGap="36px" android:iconPreview="@drawable/popup_char_308f"/>
+        <Key android:codes="12425" android:keyIcon="@drawable/button_small_kana_4_0" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_3089"/>
+        <Key android:codes="12420" android:keyIcon="@drawable/button_small_kana_5_0" android:keyWidth="67px" android:horizontalGap="14px" android:iconPreview="@drawable/popup_char_3084"/>
+        <Key android:codes="12414" android:keyIcon="@drawable/button_small_kana_6_0" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_307e"/>
+        <Key android:codes="12399" android:keyIcon="@drawable/button_small_kana_7_0" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_306f"/>
+        <Key android:codes="12394" android:keyIcon="@drawable/button_small_kana_8_0" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_306a"/>
+        <Key android:codes="12383" android:keyIcon="@drawable/button_small_kana_9_0" android:keyWidth="67px" android:horizontalGap="14px" android:iconPreview="@drawable/popup_char_305f"/>
+        <Key android:codes="12373" android:keyIcon="@drawable/button_small_kana_10_0" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_3055"/>
+        <Key android:codes="12363" android:keyIcon="@drawable/button_small_kana_11_0" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_304b"/>
+        <Key android:codes="12354" android:keyIcon="@drawable/button_small_kana_12_0" android:keyWidth="67px" android:horizontalGap="12px" android:iconPreview="@drawable/popup_char_3042"/>
     </Row>
     <Row>
-        <Key android:codes="52" android:keyIcon="@drawable/button_small_kana_0_1" android:keyWidth="56px" android:horizontalGap="7px"/>
-        <Key android:codes="53" android:keyIcon="@drawable/button_small_kana_1_1" android:keyWidth="56px" android:horizontalGap="10px"/>
-        <Key android:codes="54" android:keyIcon="@drawable/button_small_kana_2_1" android:keyWidth="56px" android:horizontalGap="10px"/>
-        <Key android:codes="0" android:keyIcon="@drawable/button_small_kana_3_1" android:keyWidth="67px" android:horizontalGap="36px"/>
-        <Key android:codes="12426" android:keyIcon="@drawable/button_small_kana_4_1" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="0" android:keyIcon="@drawable/button_small_kana_5_1" android:keyWidth="67px" android:horizontalGap="14px"/>
-        <Key android:codes="12415" android:keyIcon="@drawable/button_small_kana_6_1" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12402" android:keyIcon="@drawable/button_small_kana_7_1" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12395" android:keyIcon="@drawable/button_small_kana_8_1" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12385" android:keyIcon="@drawable/button_small_kana_9_1" android:keyWidth="67px" android:horizontalGap="14px"/>
-        <Key android:codes="12375" android:keyIcon="@drawable/button_small_kana_10_1" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12365" android:keyIcon="@drawable/button_small_kana_11_1" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12356" android:keyIcon="@drawable/button_small_kana_12_1" android:keyWidth="67px" android:horizontalGap="12px"/>
+        <Key android:codes="52" android:keyIcon="@drawable/button_small_kana_0_1" android:keyWidth="56px" android:horizontalGap="7px" android:iconPreview="@drawable/popup_char_0034"/>
+        <Key android:codes="53" android:keyIcon="@drawable/button_small_kana_1_1" android:keyWidth="56px" android:horizontalGap="10px" android:iconPreview="@drawable/popup_char_0035"/>
+        <Key android:codes="54" android:keyIcon="@drawable/button_small_kana_2_1" android:keyWidth="56px" android:horizontalGap="10px" android:iconPreview="@drawable/popup_char_0036"/>
+        <Key android:codes="0" android:keyIcon="@drawable/button_small_kana_3_1" android:keyWidth="67px" android:horizontalGap="36px" android:iconPreview="@drawable/popup_char_0000"/>
+        <Key android:codes="12426" android:keyIcon="@drawable/button_small_kana_4_1" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_308a"/>
+        <Key android:codes="0" android:keyIcon="@drawable/button_small_kana_5_1" android:keyWidth="67px" android:horizontalGap="14px" android:iconPreview="@drawable/popup_char_0000"/>
+        <Key android:codes="12415" android:keyIcon="@drawable/button_small_kana_6_1" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_307f"/>
+        <Key android:codes="12402" android:keyIcon="@drawable/button_small_kana_7_1" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_3072"/>
+        <Key android:codes="12395" android:keyIcon="@drawable/button_small_kana_8_1" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_306b"/>
+        <Key android:codes="12385" android:keyIcon="@drawable/button_small_kana_9_1" android:keyWidth="67px" android:horizontalGap="14px" android:iconPreview="@drawable/popup_char_3061"/>
+        <Key android:codes="12375" android:keyIcon="@drawable/button_small_kana_10_1" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_3057"/>
+        <Key android:codes="12365" android:keyIcon="@drawable/button_small_kana_11_1" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_304d"/>
+        <Key android:codes="12356" android:keyIcon="@drawable/button_small_kana_12_1" android:keyWidth="67px" android:horizontalGap="12px" android:iconPreview="@drawable/popup_char_3044"/>
     </Row>
     <Row>
-        <Key android:codes="55" android:keyIcon="@drawable/button_small_kana_0_2" android:keyWidth="56px" android:horizontalGap="7px"/>
-        <Key android:codes="56" android:keyIcon="@drawable/button_small_kana_1_2" android:keyWidth="56px" android:horizontalGap="10px"/>
-        <Key android:codes="57" android:keyIcon="@drawable/button_small_kana_2_2" android:keyWidth="56px" android:horizontalGap="10px"/>
-        <Key android:codes="12434" android:keyIcon="@drawable/button_small_kana_3_2" android:keyWidth="67px" android:horizontalGap="36px"/>
-        <Key android:codes="12427" android:keyIcon="@drawable/button_small_kana_4_2" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12422" android:keyIcon="@drawable/button_small_kana_5_2" android:keyWidth="67px" android:horizontalGap="14px"/>
-        <Key android:codes="12416" android:keyIcon="@drawable/button_small_kana_6_2" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12405" android:keyIcon="@drawable/button_small_kana_7_2" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12396" android:keyIcon="@drawable/button_small_kana_8_2" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12388" android:keyIcon="@drawable/button_small_kana_9_2" android:keyWidth="67px" android:horizontalGap="14px"/>
-        <Key android:codes="12377" android:keyIcon="@drawable/button_small_kana_10_2" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12367" android:keyIcon="@drawable/button_small_kana_11_2" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12358" android:keyIcon="@drawable/button_small_kana_12_2" android:keyWidth="67px" android:horizontalGap="12px"/>
+        <Key android:codes="55" android:keyIcon="@drawable/button_small_kana_0_2" android:keyWidth="56px" android:horizontalGap="7px" android:iconPreview="@drawable/popup_char_0037"/>
+        <Key android:codes="56" android:keyIcon="@drawable/button_small_kana_1_2" android:keyWidth="56px" android:horizontalGap="10px" android:iconPreview="@drawable/popup_char_0038"/>
+        <Key android:codes="57" android:keyIcon="@drawable/button_small_kana_2_2" android:keyWidth="56px" android:horizontalGap="10px" android:iconPreview="@drawable/popup_char_0039"/>
+        <Key android:codes="12434" android:keyIcon="@drawable/button_small_kana_3_2" android:keyWidth="67px" android:horizontalGap="36px" android:iconPreview="@drawable/popup_char_3092"/>
+        <Key android:codes="12427" android:keyIcon="@drawable/button_small_kana_4_2" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_308b"/>
+        <Key android:codes="12422" android:keyIcon="@drawable/button_small_kana_5_2" android:keyWidth="67px" android:horizontalGap="14px" android:iconPreview="@drawable/popup_char_3086"/>
+        <Key android:codes="12416" android:keyIcon="@drawable/button_small_kana_6_2" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_3080"/>
+        <Key android:codes="12405" android:keyIcon="@drawable/button_small_kana_7_2" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_3075"/>
+        <Key android:codes="12396" android:keyIcon="@drawable/button_small_kana_8_2" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_306c"/>
+        <Key android:codes="12388" android:keyIcon="@drawable/button_small_kana_9_2" android:keyWidth="67px" android:horizontalGap="14px" android:iconPreview="@drawable/popup_char_3064"/>
+        <Key android:codes="12377" android:keyIcon="@drawable/button_small_kana_10_2" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_3059"/>
+        <Key android:codes="12367" android:keyIcon="@drawable/button_small_kana_11_2" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_304f"/>
+        <Key android:codes="12358" android:keyIcon="@drawable/button_small_kana_12_2" android:keyWidth="67px" android:horizontalGap="12px" android:iconPreview="@drawable/popup_char_3046"/>
     </Row>
     <Row>
-        <Key android:codes="0" android:keyIcon="@drawable/button_small_kana_0_3" android:keyWidth="56px" android:horizontalGap="7px"/>
-        <Key android:codes="48" android:keyIcon="@drawable/button_small_kana_1_3" android:keyWidth="56px" android:horizontalGap="10px"/>
-        <Key android:codes="0" android:keyIcon="@drawable/button_small_kana_2_3" android:keyWidth="56px" android:horizontalGap="10px"/>
-        <Key android:codes="0" android:keyIcon="@drawable/button_small_kana_3_3" android:keyWidth="67px" android:horizontalGap="36px"/>
-        <Key android:codes="12428" android:keyIcon="@drawable/button_small_kana_4_3" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="0" android:keyIcon="@drawable/button_small_kana_5_3" android:keyWidth="67px" android:horizontalGap="14px"/>
-        <Key android:codes="12417" android:keyIcon="@drawable/button_small_kana_6_3" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12408" android:keyIcon="@drawable/button_small_kana_7_3" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12397" android:keyIcon="@drawable/button_small_kana_8_3" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12390" android:keyIcon="@drawable/button_small_kana_9_3" android:keyWidth="67px" android:horizontalGap="14px"/>
-        <Key android:codes="12379" android:keyIcon="@drawable/button_small_kana_10_3" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12369" android:keyIcon="@drawable/button_small_kana_11_3" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12360" android:keyIcon="@drawable/button_small_kana_12_3" android:keyWidth="67px" android:horizontalGap="12px"/>
+        <Key android:codes="0" android:keyIcon="@drawable/button_small_kana_0_3" android:keyWidth="56px" android:horizontalGap="7px" android:iconPreview="@drawable/popup_char_0000"/>
+        <Key android:codes="48" android:keyIcon="@drawable/button_small_kana_1_3" android:keyWidth="56px" android:horizontalGap="10px" android:iconPreview="@drawable/popup_char_0030"/>
+        <Key android:codes="0" android:keyIcon="@drawable/button_small_kana_2_3" android:keyWidth="56px" android:horizontalGap="10px" android:iconPreview="@drawable/popup_char_0000"/>
+        <Key android:codes="0" android:keyIcon="@drawable/button_small_kana_3_3" android:keyWidth="67px" android:horizontalGap="36px" android:iconPreview="@drawable/popup_char_0000"/>
+        <Key android:codes="12428" android:keyIcon="@drawable/button_small_kana_4_3" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_308c"/>
+        <Key android:codes="0" android:keyIcon="@drawable/button_small_kana_5_3" android:keyWidth="67px" android:horizontalGap="14px" android:iconPreview="@drawable/popup_char_0000"/>
+        <Key android:codes="12417" android:keyIcon="@drawable/button_small_kana_6_3" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_3081"/>
+        <Key android:codes="12408" android:keyIcon="@drawable/button_small_kana_7_3" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_3078"/>
+        <Key android:codes="12397" android:keyIcon="@drawable/button_small_kana_8_3" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_306d"/>
+        <Key android:codes="12390" android:keyIcon="@drawable/button_small_kana_9_3" android:keyWidth="67px" android:horizontalGap="14px" android:iconPreview="@drawable/popup_char_3066"/>
+        <Key android:codes="12379" android:keyIcon="@drawable/button_small_kana_10_3" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_305b"/>
+        <Key android:codes="12369" android:keyIcon="@drawable/button_small_kana_11_3" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_3051"/>
+        <Key android:codes="12360" android:keyIcon="@drawable/button_small_kana_12_3" android:keyWidth="67px" android:horizontalGap="12px" android:iconPreview="@drawable/popup_char_3048"/>
     </Row>
     <Row>
-        <Key android:codes="32" android:keyIcon="@drawable/button_small_kana_0_4" android:keyWidth="188px" android:horizontalGap="7px"/>
-        <Key android:codes="12435" android:keyIcon="@drawable/button_small_kana_3_4" android:keyWidth="67px" android:horizontalGap="36px"/>
-        <Key android:codes="12429" android:keyIcon="@drawable/button_small_kana_4_4" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12424" android:keyIcon="@drawable/button_small_kana_5_4" android:keyWidth="67px" android:horizontalGap="14px"/>
-        <Key android:codes="12418" android:keyIcon="@drawable/button_small_kana_6_4" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12411" android:keyIcon="@drawable/button_small_kana_7_4" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12398" android:keyIcon="@drawable/button_small_kana_8_4" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12392" android:keyIcon="@drawable/button_small_kana_9_4" android:keyWidth="67px" android:horizontalGap="14px"/>
-        <Key android:codes="12381" android:keyIcon="@drawable/button_small_kana_10_4" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12371" android:keyIcon="@drawable/button_small_kana_11_4" android:keyWidth="67px" android:horizontalGap="13px"/>
-        <Key android:codes="12362" android:keyIcon="@drawable/button_small_kana_12_4" android:keyWidth="67px" android:horizontalGap="12px"/>
+        <Key android:codes="32" android:keyIcon="@drawable/button_small_kana_0_4" android:keyWidth="188px" android:horizontalGap="7px" android:iconPreview="@drawable/popup_char_0000"/>
+        <Key android:codes="12435" android:keyIcon="@drawable/button_small_kana_3_4" android:keyWidth="67px" android:horizontalGap="36px" android:iconPreview="@drawable/popup_char_3093"/>
+        <Key android:codes="12429" android:keyIcon="@drawable/button_small_kana_4_4" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_308d"/>
+        <Key android:codes="12424" android:keyIcon="@drawable/button_small_kana_5_4" android:keyWidth="67px" android:horizontalGap="14px" android:iconPreview="@drawable/popup_char_3088"/>
+        <Key android:codes="12418" android:keyIcon="@drawable/button_small_kana_6_4" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_3082"/>
+        <Key android:codes="12411" android:keyIcon="@drawable/button_small_kana_7_4" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_307b"/>
+        <Key android:codes="12398" android:keyIcon="@drawable/button_small_kana_8_4" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_306e"/>
+        <Key android:codes="12392" android:keyIcon="@drawable/button_small_kana_9_4" android:keyWidth="67px" android:horizontalGap="14px" android:iconPreview="@drawable/popup_char_3068"/>
+        <Key android:codes="12381" android:keyIcon="@drawable/button_small_kana_10_4" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_305d"/>
+        <Key android:codes="12371" android:keyIcon="@drawable/button_small_kana_11_4" android:keyWidth="67px" android:horizontalGap="13px" android:iconPreview="@drawable/popup_char_3053"/>
+        <Key android:codes="12362" android:keyIcon="@drawable/button_small_kana_12_4" android:keyWidth="67px" android:horizontalGap="12px" android:iconPreview="@drawable/popup_char_304a"/>
     </Row>
     <Row>
         <Key android:codes="-230" android:keyIcon="@drawable/button_small_kana_bottom_0" android:keyWidth="188px" android:horizontalGap="7px"/>
