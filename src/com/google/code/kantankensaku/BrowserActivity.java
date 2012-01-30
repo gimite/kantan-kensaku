@@ -117,19 +117,17 @@ public class BrowserActivity extends Activity {
     private int messageId = 0;
     private boolean candidatesClosed = false;
     private Mode currentMode = Mode.RESULT_PAGE_WITH_CANDIDATES;
-    private boolean bigScreen = true;
-    private int prevButtonEnabledResource;
-    private int prevButtonDisabledResource;
-    private int selectedCandidateResource;
     private boolean touched = false;
     private int firstPageHistoryIndex;
     private ConnectivityManager connectivityManager;
+    private SizedResources sizedResources;
     
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         connectivityManager = (ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
+        sizedResources = new SizedResources(this);
 
         // Needed to run Flash Player in Android 3.0 or later.
         getWindow().addFlags(HomeActivity.FLAG_HARDWARE_ACCELERATED);
@@ -140,7 +138,7 @@ public class BrowserActivity extends Activity {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         }
         
-        setContentView(bigScreen ? R.layout.browser_big : R.layout.browser);
+        setContentView(sizedResources.browserLayout);
         resultPageTopBar = findViewById(R.id.resultPageTopBar);
         subPageTopBar = findViewById(R.id.subPageTopBar);
         candidatesBar = findViewById(R.id.candidatesBar);
@@ -167,16 +165,6 @@ public class BrowserActivity extends Activity {
         subPageHomeButton.setOnClickListener(onHomeButtonClick);
         closeCandidatesButton.setOnClickListener(onCloseCandidatesButtonClick);
         statusLabel.setOnClickListener(onStatusLabelClick);
-
-        if (bigScreen) {
-            prevButtonEnabledResource = R.drawable.button_big_result_prev;
-            prevButtonDisabledResource = R.drawable.button_big_result_prev_disabled;
-            selectedCandidateResource = R.drawable.big_selected_candidate;
-        } else {
-            prevButtonEnabledResource = R.drawable.button_result_prev;
-            prevButtonDisabledResource = R.drawable.button_result_prev_disabled;
-            selectedCandidateResource = R.drawable.selected_candidate;
-        }
 
         showMessage("読み込み中...");
         setTitle("かんたん検索");
@@ -443,7 +431,7 @@ public class BrowserActivity extends Activity {
             showMessage("見つかりませんでした。");
         }
         prevButton.setBackgroundResource(resultIndex > 0 ?
-                prevButtonEnabledResource : prevButtonDisabledResource);
+                sizedResources.prevButtonEnabledDrawable : sizedResources.prevButtonDisabledDrawable);
         // TODO prepare disabled next button image
 //        nextButton.setBackgroundResource(
 //                !searchCompleted || resultIndex < allResults.size() - 1 ?
@@ -747,22 +735,20 @@ public class BrowserActivity extends Activity {
     }
     
     private void renderCandidates() {
-        int padding = bigScreen ? 35 : 28;
-        int textSize = bigScreen ? 44 : 29;
         candidatesContainer.removeAllViews();
         for (int i = 0; i < conversionCandidates.size(); ++i) {            
             addCandidateSeparater();
             TextView label = new TextView(this);
-            label.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+            label.setTextSize(TypedValue.COMPLEX_UNIT_PX, sizedResources.candidateTextSize);
             label.setText(conversionCandidates.get(i));
             label.setTextColor(Color.BLACK);
-            label.setPadding(padding, 0, padding, 0);
+            label.setPadding(sizedResources.candidatePadding, 0, sizedResources.candidatePadding, 0);
             label.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.FILL_PARENT));
             label.setGravity(Gravity.CENTER);
             // Forces single line.
             label.setInputType(InputType.TYPE_NULL);
             if (i == conversionIndex) {
-                label.setBackgroundResource(selectedCandidateResource);
+                label.setBackgroundResource(sizedResources.selectedCandidateDrawable);
             }
             label.setOnClickListener(new OnCandidateLabelClick(i));
             candidatesContainer.addView(label);

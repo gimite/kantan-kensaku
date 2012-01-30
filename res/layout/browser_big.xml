@@ -33,7 +33,6 @@
       android:background="@drawable/big_result_top_bar_with_candidates"
       >
     <LinearLayout
-        android:id="@+id/LinearLayout01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -133,8 +132,8 @@
           />
     </HorizontalScrollView>
     <ImageView
-        android:layout_height="fill_parent"
         android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
         android:background="@drawable/candidates_separater"
         />
     <LinearLayout
@@ -214,4 +213,5 @@
       android:gravity="center_vertical|center_horizontal"
       android:text="読み込み中..."
       />
+  
 </LinearLayout>

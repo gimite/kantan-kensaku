@@ -247,7 +247,6 @@ public class HomeActivity extends Activity {
         }
         
         public void onKey(int primaryCode, int[] keyCodes) {
-            log("onKey: %d", primaryCode);
             switch (primaryCode) {
             case 0:
                 // Do nothing.

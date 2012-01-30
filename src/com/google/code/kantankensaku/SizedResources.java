@@ -32,8 +32,14 @@ public class SizedResources {
     
     public boolean supported;
     public int homeLayout;
+    public int browserLayout;
     public int gojuonKeyboard;
     public int asciiKeyboard;
+    public int prevButtonEnabledDrawable;
+    public int prevButtonDisabledDrawable;
+    public int selectedCandidateDrawable;
+    public int candidatePadding;
+    public int candidateTextSize;
     
     public SizedResources(Activity activity) {
         Size size;
@@ -59,13 +65,25 @@ public class SizedResources {
         switch (size) {
         case BIG:
             homeLayout = R.layout.home_big;
+            browserLayout = R.layout.browser_big;
             gojuonKeyboard = R.xml.gojuon_keyboard;
             asciiKeyboard = R.xml.simple_ascii_keyboard;
+            prevButtonEnabledDrawable = R.drawable.button_big_result_prev;
+            prevButtonDisabledDrawable = R.drawable.button_big_result_prev_disabled;
+            selectedCandidateDrawable = R.drawable.big_selected_candidate;
+            candidatePadding = 35;
+            candidateTextSize = 44;
             break;
         case SMALL:
             homeLayout = R.layout.home_small;
+            browserLayout = R.layout.browser_small;
             gojuonKeyboard = R.xml.gojuon_keyboard_small;
             asciiKeyboard = R.xml.ascii_keyboard_small;
+            prevButtonEnabledDrawable = R.drawable.button_result_prev;
+            prevButtonDisabledDrawable = R.drawable.button_result_prev_disabled;
+            selectedCandidateDrawable = R.drawable.selected_candidate;
+            candidatePadding = 28;
+            candidateTextSize = 29;
             break;
         default:
             throw new RuntimeException("unknown size");

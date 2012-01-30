@@ -32,9 +32,7 @@
       android:paddingBottom="7px"
       android:background="@drawable/result_top_bar_with_candidates"
       >
-      <!-- android:background="@drawable/background_repeated" -->
     <LinearLayout
-        android:id="@+id/LinearLayout01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -118,29 +116,40 @@
         android:paddingLeft="32px"
         android:paddingRight="32px"
         />
-    <LinearLayout
-        android:id="@+id/candidatesContainer"
+    <HorizontalScrollView
         android:layout_height="fill_parent"
         android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:gravity="center_vertical"
-        />
-        <!-- 
+        android:layout_weight="1"
+        android:fadingEdge="horizontal"
+        >
+      <LinearLayout
+          android:id="@+id/candidatesContainer"
+          android:layout_height="fill_parent"
+          android:orientation="horizontal"
+          android:layout_width="wrap_content"
+          android:gravity="center_vertical"
+          />
+    </HorizontalScrollView>
     <ImageView
-        android:src="@drawable/candidates_separater"
         android:layout_width="wrap_content" 
         android:layout_height="fill_parent"
+        android:background="@drawable/candidates_separater"
         />
-    <TextView
-        android:layout_width="wrap_content" 
-        android:layout_height="wrap_content" 
-        android:textSize="29px"
-        android:text="ぼたん"
-        android:textColor="#000000"
-        android:paddingLeft="28px"
-        android:paddingRight="28px"
-        />
-        -->
+    <LinearLayout
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        >
+      <ImageView
+          android:id="@+id/closeCandidatesButton"
+          android:layout_height="wrap_content"
+          android:layout_width="wrap_content"
+          android:layout_marginLeft="15px"
+          android:layout_marginRight="15px"
+          android:background="@drawable/button_small_close_candidates"
+          />
+    </LinearLayout>
   </LinearLayout>
   
   <LinearLayout
@@ -201,6 +210,8 @@
       android:id="@+id/messageLabel"
       android:visibility="gone"
       android:textSize="12pt"
+      android:gravity="center_vertical|center_horizontal"
       android:text="読み込み中..."
       />
+  
 </LinearLayout>
