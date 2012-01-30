@@ -22,6 +22,7 @@ import java.util.Vector;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -53,6 +54,7 @@ public class HomeActivity extends Activity {
     
     private static final int MIN_DISPLAY_WIDTH = 1024;
     private static final int MIN_DISPLAY_HEIGHT = 600;
+    private static final int DIALOG_ABOUT = 0;
     
     private TextView queryField;
     private KeyboardView keyboardView;
@@ -109,10 +111,22 @@ public class HomeActivity extends Activity {
         case R.id.settingsItem:
             startActivity(new Intent("android.settings.SETTINGS"));
             break;
+        case R.id.aboutItem:
+            showDialog(DIALOG_ABOUT);
+            break;
         default:
             throw new RuntimeException("unimplemented item");    
         }
         return true;
+    }
+    
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+        case DIALOG_ABOUT:
+            return new AboutDialog(this);
+        default:
+            return null;
+        }
     }
     
     private void checkDisplaySize() {

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2011 Google Inc. All Rights Reserved.
+  Author: Hiroshi Ichikawa
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="600sp"
+    android:layout_height="fill_parent"
+    android:paddingLeft="30sp"
+    android:paddingRight="30sp"
+    android:paddingTop="30sp"
+    android:paddingBottom="30sp"
+    >
+  <LinearLayout
+      android:orientation="horizontal"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      >
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="@string/app_name"
+        />
+    <TextView
+      android:id="@+id/versionLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="30sp"
+        android:textSize="30sp"
+        android:text=""
+        />
+  </LinearLayout>
+  <TableLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:paddingTop="30sp"
+      android:paddingBottom="30sp"
+      >
+    <TableRow>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Webサイト:   "
+          />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:autoLink="web"
+          android:text="http://code.google.com/p/kantan-kensaku/"
+          />
+    </TableRow>
+    <TableRow>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="作者:   "
+          />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Hiroshi Ichikawa, Naoyuki Ishitsuka, Hassan Alirezaei"
+          />
+    </TableRow>
+    <TableRow>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="ライセンス:   "
+          />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Apache License, Version 2.0"
+          />
+    </TableRow>
+  </TableLayout>
+  <Button
+      android:id="@+id/closeButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="閉じる"
+      />
+</LinearLayout>
