@@ -66,8 +66,8 @@ public class SizedResources {
         case BIG:
             homeLayout = R.layout.home_big;
             browserLayout = R.layout.browser_big;
-            gojuonKeyboard = R.xml.gojuon_keyboard;
-            asciiKeyboard = R.xml.simple_ascii_keyboard;
+            gojuonKeyboard = R.xml.gojuon_keyboard_big;
+            asciiKeyboard = R.xml.ascii_keyboard_big;
             prevButtonEnabledDrawable = R.drawable.button_big_result_prev;
             prevButtonDisabledDrawable = R.drawable.button_big_result_prev_disabled;
             selectedCandidateDrawable = R.drawable.big_selected_candidate;

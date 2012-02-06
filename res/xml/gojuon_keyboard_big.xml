@@ -81,7 +81,7 @@
         <Key android:codes="12360" android:keyIcon="@drawable/button_big_kana_12_3" android:keyWidth="83px" android:horizontalGap="16px" android:iconPreview="@drawable/popup_char_3048"/>
     </Row>
     <Row>
-        <Key android:codes="32" android:keyIcon="@drawable/button_big_kana_0_4" android:keyWidth="236px" android:horizontalGap="8px" android:iconPreview="@drawable/popup_char_0000"/>
+        <Key android:codes="32" android:keyIcon="@drawable/button_big_kana_0_4" android:keyWidth="236px" android:horizontalGap="8px" android:iconPreview="@drawable/popup_space"/>
         <Key android:codes="12435" android:keyIcon="@drawable/button_big_kana_3_4" android:keyWidth="84px" android:horizontalGap="45px" android:iconPreview="@drawable/popup_char_3093"/>
         <Key android:codes="12429" android:keyIcon="@drawable/button_big_kana_4_4" android:keyWidth="84px" android:horizontalGap="16px" android:iconPreview="@drawable/popup_char_308d"/>
         <Key android:codes="12424" android:keyIcon="@drawable/button_big_kana_5_4" android:keyWidth="83px" android:horizontalGap="18px" android:iconPreview="@drawable/popup_char_3088"/>
@@ -94,11 +94,11 @@
         <Key android:codes="12362" android:keyIcon="@drawable/button_big_kana_12_4" android:keyWidth="83px" android:horizontalGap="16px" android:iconPreview="@drawable/popup_char_304a"/>
     </Row>
     <Row>
-        <Key android:codes="-230" android:keyIcon="@drawable/button_big_kana_bottom_0" android:keyWidth="236px" android:horizontalGap="8px"/>
-        <Key android:codes="12540" android:keyIcon="@drawable/button_big_kana_bottom_1" android:keyWidth="179px" android:horizontalGap="47px"/>
-        <Key android:codes="-400" android:keyIcon="@drawable/button_big_kana_bottom_2" android:keyWidth="179px" android:horizontalGap="6px"/>
-        <Key android:codes="-401" android:keyIcon="@drawable/button_big_kana_bottom_3" android:keyWidth="179px" android:horizontalGap="6px"/>
-        <Key android:codes="-402" android:keyIcon="@drawable/button_big_kana_bottom_4" android:keyWidth="179px" android:horizontalGap="6px"/>
-        <Key android:codes="-100" android:keyIcon="@drawable/button_big_kana_bottom_5" android:keyWidth="243px" android:horizontalGap="6px"/>
+        <Key android:codes="-230" android:keyIcon="@drawable/button_big_kana_bottom_0" android:keyWidth="236px" android:horizontalGap="8px" android:iconPreview="@drawable/popup_ascii"/>
+        <Key android:codes="12540" android:keyIcon="@drawable/button_big_kana_bottom_1" android:keyWidth="179px" android:horizontalGap="47px" android:iconPreview="@drawable/popup_dash"/>
+        <Key android:codes="-400" android:keyIcon="@drawable/button_big_kana_bottom_2" android:keyWidth="179px" android:horizontalGap="6px" android:iconPreview="@drawable/popup_dakuon"/>
+        <Key android:codes="-401" android:keyIcon="@drawable/button_big_kana_bottom_3" android:keyWidth="179px" android:horizontalGap="6px" android:iconPreview="@drawable/popup_handakuon"/>
+        <Key android:codes="-402" android:keyIcon="@drawable/button_big_kana_bottom_4" android:keyWidth="179px" android:horizontalGap="6px" android:iconPreview="@drawable/popup_youon"/>
+        <Key android:codes="-100" android:keyIcon="@drawable/button_big_kana_bottom_5" android:keyWidth="243px" android:horizontalGap="6px" android:iconPreview="@drawable/popup_backspace"/>
     </Row>
 </Keyboard>
