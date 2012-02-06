@@ -143,7 +143,6 @@ public class HomeActivity extends Activity {
                             // Gives chance to go back to other home apps, in case this app is registered
                             // as default home app.
                             startOtherHome();
-                            finish();
                         }
                     });
             builder.create().show();
