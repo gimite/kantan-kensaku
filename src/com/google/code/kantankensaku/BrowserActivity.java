@@ -78,7 +78,7 @@ public class BrowserActivity extends Activity {
     
     private class FailureException extends Exception {
     }
-        
+    
     private enum Mode {
         RESULT_PAGE_WITH_CANDIDATES,
         RESULT_PAGE_WITHOUT_CANDIDATES,
@@ -144,7 +144,6 @@ public class BrowserActivity extends Activity {
         candidatesBar = findViewById(R.id.candidatesBar);
         candidatesContainer = (LinearLayout)findViewById(R.id.candidatesContainer);
         webViewContainer = (LinearLayout)findViewById(R.id.webViewContainer);
-        webView = (WebView)findViewById(R.id.webView);
         messageLabel = (TextView)findViewById(R.id.messageLabel);
         prevButton = (Button)findViewById(R.id.prevButton);
         nextButton = (Button)findViewById(R.id.nextButton);
@@ -232,6 +231,7 @@ public class BrowserActivity extends Activity {
     };
     
     private void updateBarsVisibility() {
+        if (webView == null) return;
         Mode newMode;
         // We don't switch to sub-page mode on page transition before any touch by the user.
         // This is to avoid situation where the page has auto-redirect (e.g. meta refresh) and
@@ -439,7 +439,7 @@ public class BrowserActivity extends Activity {
     }
     
     private void recreateWebView() {
-	removeWebView();
+        removeWebView();
         webView = (WebView)getLayoutInflater().inflate(R.layout.web_view, null);
         webView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
         // Enables Flash Player only for Android >=3.0.
