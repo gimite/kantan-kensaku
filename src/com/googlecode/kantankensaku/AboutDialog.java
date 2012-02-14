@@ -13,7 +13,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.google.code.kantankensaku;
+package com.googlecode.kantankensaku;
 
 import android.app.Dialog;
 import android.content.Context;
