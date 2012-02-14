@@ -1,0 +1,19 @@
+- Bump up version.
+
+- Set Config.RESOURCE_SIZE to SMALL.
+- Try:
+  - kana input wth dakuon/handakuon/youon
+  - ASCII input
+  - number input
+  - search
+  - choose kanji candidate
+  - next/prev result
+  - click a link in a page
+  - search on off-line
+  - all menu items in home
+- Set Config.RESOURCE_SIZE to AUTO and try the same things.
+
+- Set Config.RESOURCE_SIZE to AUTO, SAVE_CRASH_REPORT to false.
+- Commit, tag and push the current code.
+- Create release APK.
+- Publish in Android Market.

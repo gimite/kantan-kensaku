@@ -1,5 +1,4 @@
 // Copyright 2011 Google Inc. All Rights Reserved.
-// Author: Hiroshi Ichikawa
 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,81 +14,57 @@
 
 package com.googlecode.kantankensaku;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.Vector;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.inputmethodservice.Keyboard;
-import android.inputmethodservice.KeyboardView;
-import android.inputmethodservice.KeyboardView.OnKeyboardActionListener;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
+/**
+ * Activity shown on app launch. Shows query input field and keyboard.
+ * @author Hiroshi Ichikawa
+ */
 public class HomeActivity extends Activity {
 
-    private enum KanaType {
-        SEION, DAKUON, HANDAKUON, YOUON,
-    }
-    
     private static final int DIALOG_ABOUT = 0;
     
     private TextView queryField;
-    private KeyboardView keyboardView;
     private Button searchButton;
+    private CustomKeyboardView keyboardView;
     
-    private Keyboard gojuonKeyboard;
-    private Keyboard simpleAsciiKeyboard;
-    private HashMap<KanaType, HashMap<Character, Character>> charMap;
     private SizedResources sizedResources;
-    
-    // WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED in API Level 11
-    public static final int FLAG_HARDWARE_ACCELERATED = 0x01000000;
-    // ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE in API Level 9
-    public static final int SCREEN_ORIENTATION_SENSOR_LANDSCAPE = 6;
     
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         CustomExceptionHandler.setHandler();
-        if (Build.VERSION.SDK_INT >= 9) {
-            setRequestedOrientation(SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
-        } else {
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        }
+        setRequestedOrientation(Compatibility.getScreenOrientationSensorLandscapeOrLandscape());
         sizedResources = new SizedResources(this);
         
         setContentView(sizedResources.homeLayout);
         queryField = (TextView)findViewById(R.id.queryField);
-        keyboardView = (KeyboardView)findViewById(R.id.keyboardView);
+        keyboardView = (CustomKeyboardView)findViewById(R.id.keyboardView);
         searchButton = (Button)findViewById(R.id.searchButton);
         
-        gojuonKeyboard = new Keyboard(this, sizedResources.gojuonKeyboard);
-        simpleAsciiKeyboard = new Keyboard(this, sizedResources.asciiKeyboard);
-        keyboardView.setKeyboard(gojuonKeyboard);
-        keyboardView.setOnKeyboardActionListener(onKeyboardAction);
+        keyboardView.initialize(this, queryField);
         searchButton.setOnClickListener(onSearchButtonClick);
-        createCharMap();
         checkDisplaySize();
+    }
+
+    /**
+     * Called when the user goes back from the search result.
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        queryField.setText("");
+        keyboardView.setMode(CustomKeyboardView.Mode.GOJUON);
     }
     
     @Override
@@ -118,6 +93,7 @@ public class HomeActivity extends Activity {
         return true;
     }
     
+    @Override
     protected Dialog onCreateDialog(int id) {
         switch (id) {
         case DIALOG_ABOUT:
@@ -127,6 +103,18 @@ public class HomeActivity extends Activity {
         }
     }
     
+    /**
+     * Event handler for search button click.
+     */
+    private OnClickListener onSearchButtonClick = new OnClickListener() {
+        public void onClick(View arg0) {
+            search();
+        }
+    };
+    
+    /**
+     * Checks the display size, and shows error message if the display size is not supported.
+     */
     private void checkDisplaySize() {
         if (!sizedResources.supported) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -140,8 +128,8 @@ public class HomeActivity extends Activity {
             builder.setPositiveButton("OK",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            // Gives chance to go back to other home apps, in case this app is registered
-                            // as default home app.
+                            // Suggests to go to other home apps. This is useful in case this app is
+                            // registered as default home app.
                             startOtherHome();
                         }
                     });
@@ -149,25 +137,9 @@ public class HomeActivity extends Activity {
         }
     }
     
-    private void backSpace() {
-        String query = queryField.getText().toString();
-        if (query.length() > 0) {
-            queryField.setTextKeepState(query.substring(0, query.length() - 1));
-        }
-    }
-    
-    private OnClickListener onSearchButtonClick = new OnClickListener() {
-		public void onClick(View arg0) {
-		    search();
-		}
-    };
-    
-    private OnClickListener onHomeButtonClick = new OnClickListener() {
-        public void onClick(View arg0) {
-            queryField.setText("");
-        }
-    };
-    
+    /**
+     * Performs search.
+     */
     private void search() {
         String query = queryField.getText().toString();
         if (query.length() == 0) return;
@@ -178,115 +150,16 @@ public class HomeActivity extends Activity {
         startActivityForResult(intent, 0);
     }
     
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        queryField.setText("");
-        keyboardView.setKeyboard(gojuonKeyboard);
-    }
-    
-    
-    private void modifyChar(KanaType type) {
-        String query = queryField.getText().toString();
-        if (query.length() == 0) return;
-        Character converted = charMap.get(type).get(query.charAt(query.length() - 1));
-        if (converted != null) {
-            queryField.setTextKeepState(query.substring(0, query.length() - 1) + converted);
-        }
-    }
-    
-    private void createCharMap() {
-        HashMap<KanaType, String> typeToChars = new HashMap<KanaType, String>();
-        String seionChars =
-            "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん";
-        typeToChars.put(KanaType.SEION, seionChars);
-        typeToChars.put(KanaType.DAKUON,
-                "あいゔえおがぎぐげござじずぜぞだぢづでどなにぬねのばびぶべぼまみむめもやゆよらりるれろわをん");
-        typeToChars.put(KanaType.HANDAKUON,
-                "あいうえおかきくけこさしすせそたちつてとなにぬねのぱぴぷぺぽまみむめもやゆよらりるれろわをん");
-        typeToChars.put(KanaType.YOUON,
-                "ぁぃぅぇぉかきくけこさしすせそたちってとなにぬねのはひふへほまみむめもゃゅょらりるれろゎをん");
-        Set<KanaType> types = typeToChars.keySet();
-        charMap = new HashMap<KanaType, HashMap<Character, Character>>();
-        for (KanaType targetType : types) {
-            if (targetType == KanaType.SEION) continue;
-            HashMap<Character, Character> map = new HashMap<Character, Character>();
-            for (int i = 0; i < seionChars.length(); ++i) {
-                if (typeToChars.get(targetType).charAt(i) == seionChars.charAt(i)) continue;
-                for (KanaType sourceType : types) {
-                    char source = typeToChars.get(sourceType).charAt(i);
-                    // Toggle.
-                    char target = sourceType == targetType ?
-                            seionChars.charAt(i) : typeToChars.get(targetType).charAt(i);
-                    map.put(source, target);
-                }
-            }
-            charMap.put(targetType, map);
-        }
-    }
-    
-    private OnKeyboardActionListener onKeyboardAction = new OnKeyboardActionListener() {
-        
-        public void swipeUp() {
-        }
-        
-        public void swipeRight() {
-        }
-        
-        public void swipeLeft() {
-        }
-        
-        public void swipeDown() {
-        }
-        
-        public void onText(CharSequence arg0) {
-        }
-        
-        public void onRelease(int arg0) {
-        }
-        
-        public void onPress(int arg0) {
-        }
-        
-        public void onKey(int primaryCode, int[] keyCodes) {
-            switch (primaryCode) {
-            case 0:
-                // Do nothing.
-                break;
-            case -400:
-                modifyChar(KanaType.DAKUON);
-                break;
-            case -401:
-                modifyChar(KanaType.HANDAKUON);
-                break;
-            case -402:
-                modifyChar(KanaType.YOUON);
-                break;
-            case -403:
-                queryField.setText("");    // will be removed
-                break;
-            case -100:
-                backSpace();
-                break;
-            case -101:
-                search();
-                break;
-            case -230:
-                keyboardView.setKeyboard(
-                        keyboardView.getKeyboard() == gojuonKeyboard ?
-                                simpleAsciiKeyboard : gojuonKeyboard);
-                break;
-            default:
-                queryField.append(new String(new char[] { (char)primaryCode }));
-                break;
-            }
-        }
-    };
-    
+    /**
+     * Starts another home app.
+     */
     private void startOtherHome() {
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_HOME);
         startActivity(Intent.createChooser(intent, null));
     }
     
+    @SuppressWarnings("unused")
     private void log(String format, Object... args) {
         Log.i("kantankensaku", String.format(format, (Object[])args));
     }

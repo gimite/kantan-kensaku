@@ -62,7 +62,7 @@
         android:textSize="20pt"
         />
   </LinearLayout>
-  <android.inputmethodservice.KeyboardView
+  <com.googlecode.kantankensaku.CustomKeyboardView
       android:id="@+id/keyboardView"
       android:layout_weight="1"
       android:layout_width="wrap_content"

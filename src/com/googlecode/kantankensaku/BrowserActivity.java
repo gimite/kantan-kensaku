@@ -130,13 +130,9 @@ public class BrowserActivity extends Activity {
         sizedResources = new SizedResources(this);
 
         // Needed to run Flash Player in Android 3.0 or later.
-        getWindow().addFlags(HomeActivity.FLAG_HARDWARE_ACCELERATED);
+        getWindow().addFlags(Compatibility.FLAG_HARDWARE_ACCELERATED);
         getWindow().requestFeature(Window.FEATURE_PROGRESS);
-        if (Build.VERSION.SDK_INT >= 9) {
-            setRequestedOrientation(HomeActivity.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
-        } else {
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        }
+        setRequestedOrientation(Compatibility.getScreenOrientationSensorLandscapeOrLandscape());
         
         setContentView(sizedResources.browserLayout);
         resultPageTopBar = findViewById(R.id.resultPageTopBar);
