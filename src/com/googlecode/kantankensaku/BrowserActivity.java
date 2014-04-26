@@ -271,14 +271,7 @@ public class BrowserActivity extends Activity {
     };
     
     private boolean isExpired() {
-        Calendar now = Calendar.getInstance();
-        Calendar expireAt = Calendar.getInstance();
-        // Transliterate API may stop working after May 26, 2014.
-        // Note that month here is 0-origin and we expire one day before to consider time zone
-        // difference.
-        // http://code.google.com/intl/ja/apis/language/transliterate/overview.html
-        expireAt.set(2014, 4, 25);
-        return now.compareTo(expireAt) >= 0;
+    	return false;
     }
     
     private void showExpired() {
