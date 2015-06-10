@@ -1,0 +1,1 @@
+Android tablet app which provides an easy Web Search UI for people with no prior PC experience such as the elderly.  The application is only for Japanese users.
